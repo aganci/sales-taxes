@@ -29,11 +29,10 @@ public class SalesTaxes {
     }
 
     private String formatNumber(BigDecimal value) {
-        BigDecimal bd = value.setScale(2, BigDecimal.ROUND_UP);
         DecimalFormat df = new DecimalFormat();
         df.setMaximumFractionDigits(2);
         df.setMinimumFractionDigits(2);
         df.setGroupingUsed(false);
-        return df.format(bd);
+        return df.format(value);
     }
 }
