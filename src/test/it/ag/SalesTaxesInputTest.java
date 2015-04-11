@@ -31,9 +31,9 @@ public class SalesTaxesInputTest {
 
         assertEquals(
                 "1 imported box of chocolates: 10.50\n" +
-                "1 imported bottle of perfume: 54.63\n" +
-                "Sales Taxes: 7.63\n" +
-                "Total: 65.13",
+                "1 imported bottle of perfume: 54.65\n" +
+                "Sales Taxes: 7.65\n" +
+                "Total: 65.15",
                 result);
     }
 
@@ -50,9 +50,9 @@ public class SalesTaxesInputTest {
                 "1 imported bottle of perfume: 32.19\n" +
                 "1 bottle of perfume: 20.89\n" +
                 "1 packet of headache pills: 9.75\n" +
-                "1 imported box of chocolates: 11.82\n" +
-                "Sales Taxes: 6.67\n" +
-                "Total: 74.65"
+                "1 imported box of chocolates: 11.80\n" +
+                "Sales Taxes: 6.65\n" +
+                "Total: 74.63"
                 , result);
     }
 }

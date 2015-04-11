@@ -18,6 +18,6 @@ public class ItemTest {
     public void ImportDutyAndStandartTaxes() {
         Item item = new Item(1, "imported box of perfume", BigDecimal.valueOf(47.50));
 
-        assertEquals(0, BigDecimal.valueOf(7.13).compareTo(item.taxes()));
+        assertEquals(0, BigDecimal.valueOf(7.15).compareTo(item.taxes()));
     }
 }

@@ -1,8 +1,10 @@
 package it.ag;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 
 public class Item {
     public static Item parse(String input) {
@@ -58,7 +60,7 @@ public class Item {
     }
 
     private BigDecimal round(BigDecimal value) {
-        return value.setScale(2, BigDecimal.ROUND_UP);
+        return value.divide(BigDecimal.valueOf(0.05), 0, RoundingMode.HALF_UP).multiply(BigDecimal.valueOf(0.05));
     }
 
     public Integer getQuantity() {
