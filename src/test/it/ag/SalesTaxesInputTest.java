@@ -6,9 +6,9 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
-public class SalesTaxesTest {
+public class SalesTaxesInputTest {
     @Test
-    public void shouldBeTrue() {
+    public void input() {
         String result = new SalesTaxes().printReceiptFor(
                 "1 book at 12.49\n" +
                 "1 music CD at 14.99\n" +
