@@ -36,4 +36,23 @@ public class SalesTaxesInputTest {
                 "Total: 65.13",
                 result);
     }
+
+    @Test
+    public void input3() {
+        String result = new SalesTaxes().printReceiptFor(
+                "1 imported bottle of perfume at 27.99\n" +
+                "1 bottle of perfume at 18.99\n" +
+                "1 packet of headache pills at 9.75\n" +
+                "1 imported box of chocolates at 11.25\n"
+        );
+
+        assertEquals(
+                "1 imported bottle of perfume: 32.19\n" +
+                "1 bottle of perfume: 20.89\n" +
+                "1 packet of headache pills: 9.75\n" +
+                "1 imported box of chocolates: 11.82\n" +
+                "Sales Taxes: 6.67\n" +
+                "Total: 74.65"
+                , result);
+    }
 }

@@ -52,6 +52,8 @@ public class Item {
             return false;
         if (name.equals("imported box of chocolates"))
             return false;
+        if (name.equals("packet of headache pills"))
+            return false;
         return true;
     }
 
