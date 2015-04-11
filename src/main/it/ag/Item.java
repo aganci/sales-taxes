@@ -38,7 +38,11 @@ public class Item {
     }
 
     private boolean taxIsApplicable() {
-        return !name.equals("book");
+        if (name.equals("book"))
+            return false;
+        if (name.equals("chocolate bar"))
+            return false;
+        return true;
     }
 
     public Integer getQuantity() {

@@ -9,12 +9,23 @@ import java.util.regex.Pattern;
 
 public class SalesTaxes {
     public String printReceiptFor(String input) {
-        Item item = Item.parse(input);
+        String[] lines = input.split("\n");
 
-        return
-                item.getQuantity() + " " + item.getName() + ": " + formatNumber(item.priceWithTaxes()) + "\n" +
-                "Sales Taxes: " + formatNumber(item.taxes())  + "\n" +
-                "Total: " + formatNumber(item.priceWithTaxes());
+        BigDecimal total = BigDecimal.ZERO;
+        BigDecimal taxes = BigDecimal.ZERO;
+
+        StringBuilder output = new StringBuilder();
+        for (int i = 0; i < lines.length; i++) {
+            Item item = Item.parse(lines[i]);
+            output.append(item.getQuantity() + " " + item.getName() + ": " + formatNumber(item.priceWithTaxes()) + "\n");
+            total = total.add(item.priceWithTaxes());
+            taxes = taxes.add(item.taxes());
+        }
+
+        output.append("Sales Taxes: " + formatNumber(taxes)  + "\n");
+        output.append("Total: " + formatNumber(total));
+
+        return output.toString();
     }
 
     private String formatNumber(BigDecimal value) {
