@@ -32,9 +32,17 @@ public class Item {
     public BigDecimal taxes() {
         BigDecimal taxes = BigDecimal.ZERO;
         if (taxIsApplicable()) {
-            taxes = price.multiply(BigDecimal.valueOf(0.1));
+            taxes = round(taxes.add(price.multiply(BigDecimal.valueOf(0.1))));
+        }
+
+        if (isImported()) {
+            taxes = round(taxes.add(price.multiply(BigDecimal.valueOf(0.05))));
         }
         return taxes;
+    }
+
+    private boolean isImported() {
+        return name.startsWith("imported");
     }
 
     private boolean taxIsApplicable() {
@@ -42,7 +50,13 @@ public class Item {
             return false;
         if (name.equals("chocolate bar"))
             return false;
+        if (name.equals("imported box of chocolates"))
+            return false;
         return true;
+    }
+
+    private BigDecimal round(BigDecimal value) {
+        return value.setScale(2, BigDecimal.ROUND_UP);
     }
 
     public Integer getQuantity() {
