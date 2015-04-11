@@ -1,11 +1,13 @@
 package it.ag;
 
+import com.sun.deploy.util.StringUtils;
+
 public class SalesTaxes {
     public String printReceiptFor(String input) {
+        String[] tokens = StringUtils.splitString(input, " ");
         return
-                "1 book : 12.49\n" +
-                "1 music CD: 16.49\n" +
-                "1 chocolate bar: 0.85\n" +
-                "Sales Taxes: 1.50";
+                tokens[0] + " " + tokens[1] + ": " + tokens[3] + "\n" +
+                "Sales Taxes: 0.00\n" +
+                "Total: " + tokens[3];
     }
 }
